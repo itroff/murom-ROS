@@ -1,0 +1,665 @@
+<robot
+  name="murom">
+  <link
+    name="found">
+    <inertial>
+      <origin
+        xyz="0.028285 -0.033416 0.038796"
+        rpy="0 0 0" />
+      <mass
+        value="0.47785" />
+      <inertia
+        ixx="0.00021579"
+        ixy="9.9948E-18"
+        ixz="-4.334E-22"
+        iyy="0.00035068"
+        iyz="1.9484E-20"
+        izz="0.00021579" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/found.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/found.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rotatepillar">
+    <inertial>
+      <origin
+        xyz="0.013569 0.09277 -0.0013452"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="36.415"
+        ixy="0.079882"
+        ixz="0.31682"
+        iyy="11.443"
+        iyz="0.06556"
+        izz="33.443" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/rotatepillar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/rotatepillar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rpj"
+    type="revolute">
+    <origin
+      xyz="0.028285 -0.038796 0"
+      rpy="1.5708 -9.8328E-17 -1.679" />
+    <parent
+      link="found" />
+    <child
+      link="rotatepillar" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="torsod">
+    <inertial>
+      <origin
+        xyz="-0.29313 0.0013452 -0.18335"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="13.388"
+        ixy="-0.15231"
+        ixz="6.694"
+        iyy="33.443"
+        iyz="0.28543"
+        izz="34.469" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/torsod.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/torsod.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="tdj"
+    type="revolute">
+    <origin
+      xyz="-0.0796 0.42573 0"
+      rpy="-1.5708 -3.296E-16 1.2847" />
+    <parent
+      link="rotatepillar" />
+    <child
+      link="torsod" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="torsou">
+    <inertial>
+      <origin
+        xyz="-0.69515 -0.0013452 0.097349"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="11.769"
+        ixy="0.10234"
+        ixz="-2.8368"
+        iyy="33.443"
+        iyz="0.30692"
+        izz="36.089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/torsou.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/torsou.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="tuj"
+    type="revolute">
+    <origin
+      xyz="0.37589 0 0.029074"
+      rpy="-3.1416 -0.16831 3.5192E-18" />
+    <parent
+      link="torsod" />
+    <child
+      link="torsou" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="neck">
+    <inertial>
+      <origin
+        xyz="-7.307E-11 1.5355E-10 0.029449"
+        rpy="0 0 0" />
+      <mass
+        value="0.45032" />
+      <inertia
+        ixx="0.00022147"
+        ixy="-1.1535E-13"
+        ixz="-6.1384E-12"
+        iyy="0.00021445"
+        iyz="2.5857E-12"
+        izz="0.00014727" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/neck.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/neck.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="nj"
+    type="revolute">
+    <origin
+      xyz="0.3912 0 0.025979"
+      rpy="-2.1745E-16 1.5069 3.1416" />
+    <parent
+      link="torsou" />
+    <child
+      link="neck" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="head">
+    <inertial>
+      <origin
+        xyz="-0.0017708 -0.0015022 -1.1037"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="36.276"
+        ixy="-0.55607"
+        ixz="1.2531"
+        iyy="33.518"
+        iyz="0.19044"
+        izz="11.507" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/head.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/head.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hj"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.015"
+      rpy="3.1416 -3.3515E-15 0.085656" />
+    <parent
+      link="neck" />
+    <child
+      link="head" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="parks">
+    <inertial>
+      <origin
+        xyz="0.01122 -0.23596 -0.28664"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="33.399"
+        ixy="0.6487"
+        ixz="0.066235"
+        iyy="14.104"
+        iyz="7.684"
+        izz="33.798" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/parks.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/parks.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="psj"
+    type="revolute">
+    <origin
+      xyz="0 0.1417 -0.22265"
+      rpy="-1.8992 0.025425 0.045778" />
+    <parent
+      link="found" />
+    <child
+      link="parks" />
+    <axis
+      xyz="-0.99863 0.0092781 0.051507" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wheel">
+    <inertial>
+      <origin
+        xyz="0.0099444 8.4982E-09 5.8742E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.25241" />
+      <inertia
+        ixx="7.0371E-05"
+        ixy="2.8213E-13"
+        ixz="5.0712E-12"
+        iyy="4.2201E-05"
+        iyz="2.4728E-14"
+        izz="4.2201E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wj"
+    type="revolute">
+    <origin
+      xyz="0.024039 0.0045785 0.12766"
+      rpy="-2.8126 -2.6021E-15 -6.2103E-16" />
+    <parent
+      link="parks" />
+    <child
+      link="wheel" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="chassisl">
+    <inertial>
+      <origin
+        xyz="-0.031301 0.0052495 0.061055"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="33.41"
+        ixy="0.073801"
+        ixz="0.0094879"
+        iyy="11.443"
+        iyz="-0.072338"
+        izz="36.448" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/chassisl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/chassisl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="clj"
+    type="fixed">
+    <origin
+      xyz="-0.0031441 -0.11349 0.08752"
+      rpy="1.5708 -1.301E-16 3.1416" />
+    <parent
+      link="found" />
+    <child
+      link="chassisl" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="mwheell">
+    <inertial>
+      <origin
+        xyz="2.6795E-08 -1.9202E-07 0.069934"
+        rpy="0 0 0" />
+      <mass
+        value="38.502" />
+      <inertia
+        ixx="0.28129"
+        ixy="2.1343E-06"
+        ixz="-4.4703E-07"
+        iyy="0.28129"
+        iyz="-3.6422E-08"
+        izz="0.54104" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/mwheell.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/mwheell.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mwlj"
+    type="revolute">
+    <origin
+      xyz="-0.18843 -0.25029 0.031068"
+      rpy="1.5708 -1.4186 -1.5708" />
+    <parent
+      link="chassisl" />
+    <child
+      link="mwheell" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="chassisr">
+    <inertial>
+      <origin
+        xyz="-0.031556 0.0052495 0.0010809"
+        rpy="0 0 0" />
+      <mass
+        value="199.06" />
+      <inertia
+        ixx="33.41"
+        ixy="-0.073801"
+        ixz="0.0094879"
+        iyy="11.443"
+        iyz="0.072338"
+        izz="36.448" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/chassisr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/chassisr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="crj"
+    type="fixed">
+    <origin
+      xyz="0.059714 -0.051349 0.08752"
+      rpy="1.5708 0 0" />
+    <parent
+      link="found" />
+    <child
+      link="chassisr" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="mwheelr">
+    <inertial>
+      <origin
+        xyz="2.6795E-08 -1.9202E-07 0.069934"
+        rpy="0 0 0" />
+      <mass
+        value="38.502" />
+      <inertia
+        ixx="0.28129"
+        ixy="2.1343E-06"
+        ixz="-4.4703E-07"
+        iyy="0.28129"
+        iyz="-3.6422E-08"
+        izz="0.54104" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/mwheelr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom/meshes/mwheelr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mwrj"
+    type="revolute">
+    <origin
+      xyz="-0.18843 -0.25029 0.031068"
+      rpy="1.5708 -1.5566 -1.5708" />
+    <parent
+      link="chassisr" />
+    <child
+      link="mwheelr" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

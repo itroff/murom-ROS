@@ -1,0 +1,13 @@
+<!--
+  The mobile platform base.
+  
+  Selector for the base.
+ -->
+<launch>
+  <arg name="base"/>
+  <arg name="serialport"/>
+  <include file="$(find murom_bringup)/launch/includes/murom/mobile_base.launch.xml">
+    <arg name="serialport" value="$(arg serialport)" />
+  </include>
+</launch>
+

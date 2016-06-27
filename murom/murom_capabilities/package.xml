@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package>
+  <name>murom_capabilities</name>
+  <version>0.1.1</version>
+  <description>Capabilities for the Murom</description>
+
+  <maintainer email="i.trofimov@mivar.ru">Mivar RoboTeam</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/turtlebot_capabilities</url>
+  <url type="repository">https://github.com/turtlebot/turtlebot</url>
+  <url type="bugtracker">https://github.com/turtlebot/turtlebot/issues</url>
+
+  <author>Mivar RoboTeam</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>capabilities</run_depend>
+  <run_depend>std_capabilities</run_depend>
+  <!--<run_depend>turtlebot_bringup</run_depend>--> <!-- Comment out to prevent circular dependency -->
+
+  <export>
+    <capability_interface>
+      interfaces/MuromBringup.yaml
+    </capability_interface>
+    <capability_provider>
+      providers/depthimage_to_laserscan.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/diagnostics.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/differential_mobile_base.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/rgbd_sensor.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/robot_state_publisher.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/murom_bringup.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/murom2_bringup.yaml
+    </capability_provider>
+  </export>
+</package>

@@ -1,0 +1,14 @@
+%YAML 1.1
+---
+name: murom2_bringup
+spec_version: 1
+spec_type: provider
+implements: murom_capabilities/MuromBringup
+launch_file: 'launch/murom2_bringup.launch'
+depends_on:
+  'std_capabilities/Diagnostics':
+    provider: 'murom_capabilities/diagnostics'
+  'std_capabilities/DifferentialMobileBase':
+    provider: 'murom_capabilities/differential_mobile_base'
+  'std_capabilities/RobotStatePublisher':
+    provider: 'murom_capabilities/robot_state_publisher'
