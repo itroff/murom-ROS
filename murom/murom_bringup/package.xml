@@ -15,10 +15,10 @@
 
   <run_depend>zeroconf_avahi</run_depend>
   <run_depend>yocs_cmd_vel_mux</run_depend>
-  <run_depend>kobuki_capabilities</run_depend>
-  <run_depend>kobuki_node</run_depend>
-  <run_depend>kobuki_bumper2pc</run_depend>
-  <run_depend>kobuki_safety_controller</run_depend>
+<!--  <run_depend>kobuki_capabilities</run_depend>-->
+  <run_depend>murom_node</run_depend>
+<!--  <run_depend>kobuki_bumper2pc</run_depend>
+  <run_depend>kobuki_safety_controller</run_depend>-->
   <run_depend>create_node</run_depend>
   <run_depend>murom_capabilities</run_depend>
   <run_depend>murom_description</run_depend>
@@ -27,7 +27,7 @@
   <run_depend>diagnostic_aggregator</run_depend>
   <run_depend>openni2_launch</run_depend>
   <run_depend>freenect_launch</run_depend>
-  <run_depend>laptop_battery_monitor</run_depend>
+<!--  <run_depend>laptop_battery_monitor</run_depend>-->
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_bubble_icons</run_depend>
   <run_depend>depthimage_to_laserscan</run_depend>
