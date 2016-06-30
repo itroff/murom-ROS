@@ -1,5 +1,5 @@
 <!--
-  Collection of robot-centric definitions and nodes for the turtlebot. 
+  Collection of robot-centric definitions and nodes for the murom.
  -->
 <launch>
   <arg name="base"/>

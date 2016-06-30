@@ -6,7 +6,7 @@ spec_type: provider
 implements: std_capabilities/DifferentialMobileBase
 launch_file:
 depends_on:
-  'turtlebot_capabilities/MuromBringup'
+  'murom_capabilities/MuromBringup'
 remappings:
   topics:
     '/cmd_vel': '/cmd_vel'

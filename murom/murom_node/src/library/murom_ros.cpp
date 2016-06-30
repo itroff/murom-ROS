@@ -33,7 +33,7 @@ namespace murom
   {
     // turtlebot required
     this->publisher["joint_states"]  = nh.advertise<sensor_msgs::JointState>("joint_states",100);
-
+// в данный топик писать
     // kobuki esoterics
     this->publisher["version_info"] = nh.advertise<kobuki_msgs::VersionInfo>("version_info",100,true);
 
@@ -77,6 +77,7 @@ namespace murom
     this->last_cmd_vel_time = ros::Time::now();
     this->murom.wheel_speed_cmd[LEFT]  = msg->linear.x - msg->angular.z * this->murom.wheel_separation / 2;
     this->murom.wheel_speed_cmd[RIGHT] = msg->linear.x + msg->angular.z * this->murom.wheel_separation / 2;
+      //Сделать отправку скорости в муром
   }
 
   void MuromRos::subscribeMotorPowerCommand(const kobuki_msgs::MotorPowerConstPtr msg)

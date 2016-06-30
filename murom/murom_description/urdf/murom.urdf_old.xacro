@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<robot name="murom" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find murom_description)/urdf/kinect/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find murom_description)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find murom_description)/urdf/murom_properties.urdf.xacro"/>
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/murom</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="Found">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="Wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="WheelMR">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="WheelML">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+    <link name="base_footprint"/>
+    <!--
+       Base link is set at the bottom of the base mould.
+       This is done to be compatible with the way base link
+       was configured for turtlebot 1. Refer to
+       
+       https://github.com/turtlebot/turtlebot/issues/40
+       
+       To put the base link at the more oft used wheel
+       axis, set the z-distance from the base_footprint
+       to 0.352.
+      -->
+    <joint name="base_joint" type="fixed">
+      <origin xyz="0 0 0.0102" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.028634 -0.017991 0.021937"
+        rpy="0 0 0" />
+      <mass
+        value="72.98" />
+      <inertia
+        ixx="4.9013"
+        ixy="0.0071913"
+        ixz="-0.00020072"
+        iyy="4.3205"
+        iyz="-0.056159"
+        izz="6.1094" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/Found.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/Found.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+
+  <link
+    name="ParkStand">
+    <inertial>
+      <origin
+        xyz="0.027714 -0.014703 0.01016"
+        rpy="0 0 0" />
+      <mass
+        value="0.086014" />
+      <inertia
+        ixx="0.00026204"
+        ixy="2.3732E-06"
+        ixz="1.3983E-05"
+        iyy="0.00027128"
+        iyz="4.307E-05"
+        izz="3.1939E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ParkStand.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ParkStand.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="PSJ2"
+    type="fixed">
+    <origin
+      xyz="0 0.14169522497936 -0.222646388380275"
+      rpy="-1.81827886787508 0.0216390684967654 0.0476829365477902" />
+    <parent
+      link="base_link" />
+    <child
+      link="ParkStand" />
+    <axis
+      xyz="-0.998629534754574 0.00927811575957139 0.0515069789816417" />
+  </joint>
+
+  <link
+    name="Wheel">
+    <inertial>
+      <origin
+        xyz="6.1242E-12 -0.015 5.0634E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.25241" />
+      <inertia
+        ixx="7.0371E-05"
+        ixy="2.4317E-13"
+        ixz="5.0714E-12"
+        iyy="4.2201E-05"
+        iyz="2.2577E-14"
+        izz="4.2201E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WJ"
+    type="fixed">
+    <origin
+      xyz="0.03336 -0.0099533 0.12403"
+      rpy="-2.8936 2.9213E-15 5.3429E-16" />
+    <parent
+      link="ParkStand" />
+    <child
+      link="Wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="ChassisSR">
+    <inertial>
+      <origin
+        xyz="-0.19809 -0.17639 0.031065"
+        rpy="0 0 0" />
+      <mass
+        value="4.373" />
+      <inertia
+        ixx="0.053624"
+        ixy="0.001842"
+        ixz="5.2919E-08"
+        iyy="0.0062762"
+        iyz="2.2555E-06"
+        izz="0.049069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ChassisSR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ChassisSR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="CSRJ"
+    type="fixed">
+    <origin
+      xyz="0.0627136260926375 -0.0483493167459002 0.0881716991997912"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ChassisSR" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="WheelMR">
+    <inertial>
+      <origin
+        xyz="2.6795E-08 -1.9202E-07 0.069934"
+        rpy="0 0 0" />
+      <mass
+        value="38.502" />
+      <inertia
+        ixx="0.28129"
+        ixy="2.1343E-06"
+        ixz="-4.4703E-07"
+        iyy="0.28129"
+        iyz="-3.6422E-08"
+        izz="0.54104" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/WheelMR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/WheelMR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.19143 -0.25029 0.031068"
+      rpy="-1.5708 -1.2969 1.5708" />
+    <parent
+      link="ChassisSR" />
+    <child
+      link="WheelMR" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="0.7" friction="0.0"/>
+
+  </joint>
+  <link
+    name="ChassisSL">
+    <inertial>
+      <origin
+        xyz="-0.19809 -0.17639 0.031065"
+        rpy="0 0 0" />
+      <mass
+        value="4.373" />
+      <inertia
+        ixx="0.053624"
+        ixy="0.001842"
+        ixz="5.2348E-08"
+        iyy="0.0062762"
+        iyz="2.2527E-06"
+        izz="0.049069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ChassisSL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/ChassisSL.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="CSLJ"
+    type="fixed">
+    <origin
+      xyz="-0.00614412083392535 -0.106485619226909 0.0881716991997913"
+      rpy="1.5707963267949 -6.07153216591883E-16 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="ChassisSL" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="WheelML">
+    <inertial>
+      <origin
+        xyz="2.6795E-08 -1.7967E-07 0.069933"
+        rpy="0 0 0" />
+      <mass
+        value="38.502" />
+      <inertia
+        ixx="0.28129"
+        ixy="2.1343E-06"
+        ixz="-4.4702E-07"
+        iyy="0.28129"
+        iyz="-4.9709E-08"
+        izz="0.54104" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/WheelML.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://murom_description/meshes/WheelML.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.19143 -0.25029 0.031068"
+      rpy="-1.5708 -1.0778 1.5708" />
+    <parent
+      link="ChassisSL" />
+    <child
+      link="WheelML" />
+    <axis
+      xyz="0 0 -1" />
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="0.7" friction="0.0"/>
+  </joint>
+<!--
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.05 0 0.05" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_rgb_optical_frame"/>
+  </joint>
+-->
+  <!-- Camera -->
+<!--  <link name="camera_rgb_optical_frame">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+
+      <geometry>
+	<box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>-->
+  <sensor_kinect  parent="base_link"/>
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="WMRJ">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+ <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="WMLJ">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

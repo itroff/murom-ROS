@@ -6,7 +6,7 @@
   <arg name="stacks"/>
   <arg name="3d_sensor"/>
   
-  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find murom_description)/urdf/murom.urdf'" />
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find murom_description)/urdf/murom.urdf.xacro'" />
   <param name="robot_description" command="$(arg urdf_file)" />
 
 </launch>
