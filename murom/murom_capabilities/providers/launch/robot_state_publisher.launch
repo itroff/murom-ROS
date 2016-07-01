@@ -1,6 +1,6 @@
 <!-- Launcher for the Murom's robot state publisher provider -->
 <launch>
-  <arg name="base"       default="$(optenv MUROM_BASE murom_base)"/>  <!-- create, roomba -->
+  <arg name="base"       default="$(optenv MUROM_BASE murom)"/>  <!-- create, roomba -->
   <arg name="stacks"     default="$(optenv MUROM_STACKS hexagons)"/>  <!-- circles, hexagons -->
   <arg name="3d_sensor"  default="$(optenv MUROM_3D_SENSOR kinect)"/>  <!-- kinect, xtion -->
   

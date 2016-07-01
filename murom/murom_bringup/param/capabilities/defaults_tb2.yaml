@@ -5,4 +5,4 @@ defaults:
   'std_capabilities/LaserSensor':                 'murom_capabilities/depthimage_to_laserscan'
   'std_capabilities/RobotStatePublisher':         'murom_capabilities/robot_state_publisher'
   'std_capabilities/RGBDSensor':                  'murom_capabilities/rgbd_sensor'
-  'murom_capabilities/MuromBringup':      'murom_capabilities/murom2_bringup'
+  'murom_capabilities/MuromBringup':                'murom_capabilities/murom2_bringup'

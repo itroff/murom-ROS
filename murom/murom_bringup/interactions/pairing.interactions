@@ -131,7 +131,7 @@
   icon:
     resource_name: murom_rapps/3dsensor_bubble_icon.png
   pairing:
-    rapp: turtlebot_rapps/3dsensor
+    rapp: murom_rapps/3dsensor
     remappings: []
 
 

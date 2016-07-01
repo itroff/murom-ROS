@@ -12,7 +12,7 @@ analyzers:
     timeout: 5.0
     contains: ['Battery', 'Laptop Battery']
     remove_prefix: mobile_base_nodelet_manager
-  kobuki:
+  murom:
     type: diagnostic_aggregator/GenericAnalyzer
     path: 'Murom'
     timeout: 5.0

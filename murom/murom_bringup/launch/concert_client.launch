@@ -33,7 +33,7 @@
   <arg name="rapp_verbose"                      default="true" doc="show verbose output from running apps (aka roslaunch --screen)"/>
 
   <!-- ***************************** Rocon Master Info ************************** -->
-  <arg name="robot_description"                 default="Kick-ass ROS turtle" doc="user friendly robot description."/>
+  <arg name="robot_description"                 default="Kick-ass ROS murom" doc="user friendly robot description."/>
 
   <!-- Capabilities --> 
   <arg name="capabilities"                      default="true" doc="start and register an underlying capability server"/>

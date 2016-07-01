@@ -7,10 +7,6 @@
   <author>Mivar RoboTeam</author>
   <maintainer email="i.trofimov@mivar.ru">Mivar RoboTeam</maintainer>
   <license>BSD</license>
-  <url type="website">http://ros.org/wiki/turtlebot_bringup</url>
-  <url type="repository">https://github.com/turtlebot/turtlebot</url>
-  <url type="bugtracker">https://github.com/turtlebot/turtlebot/issues</url>
-
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>zeroconf_avahi</run_depend>
