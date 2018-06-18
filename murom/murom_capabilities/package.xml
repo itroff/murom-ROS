@@ -4,12 +4,12 @@
   <version>0.1.1</version>
   <description>Capabilities for the Murom</description>
 
-  <maintainer email="i.trofimov@mivar.ru">Mivar RoboTeam</maintainer>
+  <maintainer email="idtrof@gmail.com">elias</maintainer>
 
   <license>BSD</license>
 
 
-  <author>Mivar RoboTeam</author>
+  <author>Elias</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 

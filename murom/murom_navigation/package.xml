@@ -4,7 +4,7 @@
   <description>murom_navigation</description>
   <maintainer email="turtlebot@osrfoundation.org">OSRF</maintainer>
   <license>BSD</license>
-  <author>Mivar RobotStream</author>
+  <author>Elias RobotStream</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   

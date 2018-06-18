@@ -4,8 +4,8 @@
   <description>
      murom_bringup provides roslaunch scripts for starting the Murom base functionality. 
   </description>
-  <author>Mivar RoboTeam</author>
-  <maintainer email="i.trofimov@mivar.ru">Mivar RoboTeam</maintainer>
+  <author>Itroff</author>
+  <maintainer email="idtrof@gmail.com"></maintainer>
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
 

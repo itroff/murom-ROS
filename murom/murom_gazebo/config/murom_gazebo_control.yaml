@@ -1,0 +1,36 @@
+murom:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Trunk_rotate
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Belly_turn
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Spine_move
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint4_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Neck_move
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint5_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Head_rotate
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  lw_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_left_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  rw_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_right_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="sensor_kinect"> 
+  <xacro:property name="kinect_cam_py" value="-0.0125"/>
+  <xacro:macro name="sensor_kinect" params="parent">
+
+    <material name="Kinect2Grey">
+      <color rgba="0.15 0.15 0.15 1.0"/>
+    </material>
+
+    <joint name="kinect2_in_joint" type="fixed">
+    <origin xyz="${cam_px} ${kinect_cam_py} ${cam_pz}" rpy="${cam_or} ${cam_op} ${cam_oy}"/>
+      <parent link="${parent}"/>
+      <child link="kinect2_link"/>
+    </joint>
+
+    <link name="kinect2_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+          </collision>
+    </link>
+
+    <link name="kinect2_rgb_optical_frame">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 -0.1 0"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m -->
+          <mesh filename="package://murom_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Kinect2Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://murom_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="kinect2_in2_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="kinect2_link"/>
+      <child link="kinect2_rgb_optical_frame"/>
+    </joint>
+
+
+    <link name="kinect2_ir_optical_frame">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 -0.1 0"/>
+    
+        <material name="Kinect2Grey"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        
+      </collision>
+    </link>
+    <joint name="kinect2_in3_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="kinect2_rgb_optical_frame"/>
+      <child link="kinect2_ir_optical_frame"/>
+    </joint>
+
+
+
+  </xacro:macro>
+</robot>

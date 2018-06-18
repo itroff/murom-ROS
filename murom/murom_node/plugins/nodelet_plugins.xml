@@ -1,8 +1,0 @@
-<library path="lib/libmurom_nodelet">
-  <class name="murom_node/MuromNodelet" type="murom::MuromNodelet" base_class_type="nodelet::Nodelet">
-    <description>
-      Nodelet version of the soft Murom node
-    </description>
-  </class>
-</library>
-

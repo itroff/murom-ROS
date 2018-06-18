@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="model"               default="$(find xacro)/xacro.py '$(find murom_description)/urdf/murom.urdf.xacro'"/>
+
+  <param name="robot_description" command="$(arg model)" />
+
+
+  <node name="murom_node" pkg="murom_node" output="screen" type="murom_node"/>
+<!--   <rosparam>
+      publish_tf: true
+      odom_frame: odom
+    </rosparam>-->
+  <include file="$(find murom_node)/launch/murom_control.launch" />
+  
+</launch>
